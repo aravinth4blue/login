@@ -1,0 +1,56 @@
+<html ng-app="myfirst">
+<head>
+<title>My first angular application</title>
+</head>
+<div>
+<div ng-controller='HelloCtrl as hello'>
+<input type="text" ng-model="user_name">
+<button  ng-click="hello.sayhello(user_name);" >greet</button>
+{{greet}}
+</div>
+<!--Angular js -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script>
+<script src="https://code.angularjs.org/1.6.2/angular-messages.js"></script>
+<script>
+(function () {
+    'use strict';
+     angular.module('myfirst',[]);
+     //controller('helloworld',[]);
+     //{
+ //    	function Controller(){
+ //    		var vm=this;
+ //    		console.log(vm);
+ //    		vm.sayhello=sayhello;
+ //    		function sayhello(){
+ //    			console.log('Inside Hello function');
+ //    		}
+ //    	}
+	// }
+})();
+
+</script>
+<script>
+(function() {
+  'use strict';
+
+  angular
+    .module('myfirst')
+    .controller('HelloCtrl', HelloCtrl)
+
+  HelloCtrl.$inject = [
+  ];
+
+  function HelloCtrl() {
+    var vm = this;
+    vm.sayhello=sayhello;
+    vm.user_name="default";
+    console.log(vm);
+    console.log('Inside main controller');
+    function sayhello(user_name){
+
+    	console.log('Inside Hello function'+user_name);
+    };
+  }
+})();
+</script>
+</html>
